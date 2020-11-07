@@ -1,27 +1,37 @@
 {
-  "name": "Getting Started Example",
+  "name": "Constant Context",
+  "description" : "Highlights elements with keywords on developer.chrome",
   "version": "1.0",
-  "description": "Build an Extension!",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
-  "options_page": "options.html",
+  "page_action": {
+    "default_icon": {
+      "16": "images/cc16.png",
+      "32": "images/cc32.png"
+      },
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "images/cc16.png",
+    "48": "images/cc48.png",
+    "32": "images/cc32.png",
+    "128": "images/cc128.png"
+  },
+  "permissions": [
+    "https://developer.chrome.com/*",
+    "storage",
+    "declarativeContent"
+  ],
+  "manifest_version": 2,
   "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
-  "page_action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "images/get_started16.png",
-      "32": "images/get_started32.png",
-      "48": "images/get_started48.png",
-      "128": "images/get_started128.png"
+  "web_accessible_resources": ["style.css"],
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "js": ["content_script.js"],
+      "matches": ["https://developer.chrome.com/*"],
+      "run_at": "document_idle"
     }
-  },
-  "icons": {
-    "16": "images/get_started16.png",
-    "32": "images/get_started32.png",
-    "48": "images/get_started48.png",
-    "128": "images/get_started128.png"
-  },
-  "manifest_version": 2
+  ]
 }

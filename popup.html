@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Constant Context</title>
     <style>
-      button {
-        height: 30px;
-        width: 30px;
+      body {
+        min-width: 300px;
+        font-size: 15px;
+      }
+      input {
+        margin: 5px;
         outline: none;
       }
     </style>
   </head>
+
   <body>
-    <button id="changeColor"></button>
-    <script src="popup.js"></script>
+    <h2>Constant Context</h2>
+    <p>Highlights context around words.</p>
+    <ul id="displayWords"></ul>
+    <form id="form">
+      <input type="text" name="word" id="userWords">
+      <br>
+      <input type='submit' value='Submit' id='wordSubmit'>
+      <button id="clearList">Clear</button>
+    </form>
   </body>
+  <script src="popup.js"></script>
 </html>
