@@ -29,7 +29,7 @@ window.setInterval(function () {
 }, 2000);
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  console.log("Study found");
+  console.log(`${request.studyCount} studies found`);
 
   chrome.browserAction.setIcon({
     path: {
