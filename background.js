@@ -18,6 +18,16 @@ chrome.runtime.onInstalled.addListener(function () {
   });
 });
 
+let regExp = new RegExp("(app.prolific.co)");
+window.setInterval(function () {
+  chrome.tabs.query({}, function (tabs) {
+    for (var i = 0; i < tabs.length; i++) {
+      if (regExp.test(tabs[i].url))
+        chrome.tabs.executeScript(tabs[i].id, { file: "content_script.js" });
+    }
+  });
+}, 2000);
+
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   console.log("ALERT");
 
