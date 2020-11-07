@@ -17,6 +17,10 @@ function displayWords() {
 }
 
 displayWords();
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+  console.log("ALERT");
+  chrome.browserAction.setIcon("images/get_started16.png");
+});
 
 document.getElementById("wordSubmit").onclick = function () {
   let userWords = document.getElementById("userWords").value.trim();

@@ -2,7 +2,7 @@
   "name": "Prolific Notifier",
   "description": "Notifies you when a new study becomes available.",
   "version": "1.0",
-  "page_action": {
+  "browser_action": {
     "default_icon": {
       "16": "images/cc16.png",
       "32": "images/cc32.png"

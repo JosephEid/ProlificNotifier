@@ -20,5 +20,10 @@ chrome.runtime.onInstalled.addListener(function () {
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   console.log("ALERT");
-  chrome.browserAction.setIcon("images/get_started16.png");
+
+  chrome.browserAction.setIcon({
+    path: {
+      16: "images/get_started16.png",
+    },
+  });
 });
