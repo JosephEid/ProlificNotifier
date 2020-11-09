@@ -46,15 +46,22 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       16: `images/pronotif16_study.png`,
     },
   });
-  var audio;
+
   if (request.studyCount > studies) {
-    chrome.storage.sync.get("sound", function (data) {
-      audio = new Audio(`sounds/${data.sound}_sound.mp3`);
-    });
-    chrome.storage.sync.get("volume", function (data) {
-      audio.volume = data.volume == "100" ? 1 : `0.${data.volume}`;
-      audio.play();
-    });
+    // chrome.storage.sync.get(["sound", "volume"], function (data) {
+    //   var audio = new Audio(`sounds/${data.sound}_sound.mp3`);
+    //   audio.volume = data.volume / 100;
+    //   audio.play();
+    // });
+    playSound();
   }
   studies = request.studyCount;
 });
+
+function playSound() {
+  chrome.storage.sync.get(["sound", "volume"], function (data) {
+    var audio = new Audio(`sounds/${data.sound}_sound.mp3`);
+    audio.volume = data.volume / 100;
+    audio.play();
+  });
+}

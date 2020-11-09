@@ -21,8 +21,7 @@ function addRadiosEventListeners() {
 
       chrome.storage.sync.set({ sound: choice }, function () {
         console.log(`Set sound to: ${choice}`);
-        var audio = new Audio(`sounds/${choice}_sound.mp3`);
-        audio.play();
+        playSound();
       });
     });
   }
@@ -35,11 +34,15 @@ function addRangeEventListeners() {
 
     chrome.storage.sync.set({ volume: choice }, function () {
       console.log(`Set volume to: ${choice}`);
-      chrome.storage.sync.get("sound", function (data) {
-        var audio = new Audio(`sounds/${data.sound}_sound.mp3`);
-        audio.volume = choice == "100" ? 1 : `0.${choice}`;
-        audio.play();
-      });
+      playSound();
     });
+  });
+}
+
+function playSound() {
+  chrome.storage.sync.get(["sound", "volume"], function (data) {
+    var audio = new Audio(`sounds/${data.sound}_sound.mp3`);
+    audio.volume = data.volume / 100;
+    audio.play();
   });
 }
