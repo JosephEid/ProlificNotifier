@@ -9,3 +9,16 @@ for (var i = 0; i < radios.length; i++) {
     });
   });
 }
+
+var volume = document.soundForm.volume;
+volume.addEventListener("change", function () {
+  var choice = this.value;
+  chrome.storage.sync.set({ volume: choice }, function () {
+    console.log(`Set volume to: ${choice}`);
+    chrome.storage.sync.get("sound", function (data) {
+      var audio = new Audio(`sounds/${data.sound}_sound.mp3`);
+      audio.volume = choice == "100" ? 1 : `0.${choice}`;
+      audio.play();
+    });
+  });
+});

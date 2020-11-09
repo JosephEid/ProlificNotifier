@@ -8,10 +8,10 @@ const pageActionMatchRule = {
   actions: [new chrome.declarativeContent.ShowPageAction()],
 };
 
-// Register the runtime.onInstalled event listener.
+// Register the runtime.onInstalled event listener and initialise notification sound as bell sound.
 chrome.runtime.onInstalled.addListener(function () {
-  chrome.storage.sync.set({ sound: "bell" }, function () {
-    console.log("Sound initialised as bell.");
+  chrome.storage.sync.set({ sound: "bell", volume: "90" }, function () {
+    console.log("Sound initialised as bell at 90% volume.");
   });
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
     chrome.declarativeContent.onPageChanged.addRules([pageActionMatchRule]);
