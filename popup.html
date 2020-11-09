@@ -6,20 +6,39 @@
       body {
         min-width: 300px;
         font-size: 15px;
+        text-align: center;
       }
     </style>
   </head>
 
   <body>
     <h2>Prolific Notifier</h2>
+    <img
+      src="images/pronotif128_0.png"
+      alt="Prolific Notifier logo"
+      width="100"
+      height="100"
+    />
     <p>
       With
-      <a aria-label="app.prolific.co" href="https://app.prolific.co"
+      <a
+        aria-label="app.prolific.co"
+        href="https://app.prolific.co"
+        target="_blank"
         >app.prolific.co</a
       >
       open and this extension running, you can carry on browsing and it will
       notify you when a new study becomes available.
     </p>
+    <p>Sound:</p>
+    <form name="soundForm">
+      <label for="bell">Bell</label>
+      <input type="radio" name="soundChoices" id="bell" value="bell" />
+      <label for="swift">Swift</label>
+      <input type="radio" name="soundChoices" id="swift" value="swift" />
+      <label for="chime">Chime</label>
+      <input type="radio" name="soundChoices" id="chime" value="chime" />
+    </form>
   </body>
   <script src="popup.js"></script>
 </html>
