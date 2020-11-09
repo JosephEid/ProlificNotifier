@@ -1,19 +1,19 @@
 {
   "name": "Prolific Notifier",
-  "description": "Notifies you when a new study becomes available.",
+  "description": "Notifier you when a new study becomes available.",
   "version": "1.0",
   "browser_action": {
     "default_icon": {
-      "16": "images/cc16.png",
-      "32": "images/cc32.png"
+      "16": "images/pronotif16_0.png",
+      "32": "images/pronotif32_0.png"
     },
     "default_popup": "popup.html"
   },
   "icons": {
-    "16": "images/cc16.png",
-    "48": "images/cc48.png",
-    "32": "images/cc32.png",
-    "128": "images/cc128.png"
+    "16": "images/pronotif16_0.png",
+    "48": "images/pronotif48_0.png",
+    "32": "images/pronotif32_0.png",
+    "128": "images/pronotif128_0.png"
   },
   "permissions": [
     "tabs",
