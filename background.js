@@ -48,11 +48,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   });
 
   if (request.studyCount > studies) {
-    // chrome.storage.sync.get(["sound", "volume"], function (data) {
-    //   var audio = new Audio(`sounds/${data.sound}_sound.mp3`);
-    //   audio.volume = data.volume / 100;
-    //   audio.play();
-    // });
     playSound();
   }
   studies = request.studyCount;
