@@ -1,6 +1,6 @@
 {
   "name": "Prolific Notifier",
-  "description": "Notifier you when a new study becomes available.",
+  "description": "Notifies prolific users when a new study becomes available.",
   "version": "1.0",
   "browser_action": {
     "default_icon": {
